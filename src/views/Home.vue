@@ -62,12 +62,7 @@
       </div>
     </section>
   </div>
-  <div
-    v-if="isCreate"
-    class="absolute w-full h-full flex justify-center items-end"
-  >
-    <Popup></Popup>
-  </div>
+  <Popup v-if="isCreate"></Popup>
 </template>
 
 <script setup>
@@ -75,7 +70,7 @@ import { ref } from "vue";
 import { createUrl } from "../utilities/urlRequest.js";
 import Popup from "../components/Popup.vue";
 
-let isCreate = ref(false);
+const isCreate = ref(false);
 const urls = ref({
   baseUrl: "https://",
   miniUrl: "",
@@ -84,11 +79,11 @@ const addUrls = async () => {
   await createUrl(urls.value)
     .then((value) => {
       if (value.data) {
-        isCreate = true;
+        isCreate.value = true;
       }
       setTimeout(() => {
-        isCreate = false;
-      }, 4000);
+        isCreate.value = false;
+      }, 3000);
     })
     .catch((err) => console.log(err));
 };
