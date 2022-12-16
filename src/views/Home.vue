@@ -62,7 +62,7 @@
       </div>
     </section>
   </div>
-  <Popup v-if="isCreate" :display="isCreate"></Popup>
+  <Popup v-if="create" :display="isCreate"></Popup>
 </template>
 
 <script setup>
@@ -70,6 +70,7 @@ import { ref } from "vue";
 import { createUrl } from "../utilities/urlRequest.js";
 import Popup from "../components/Popup.vue";
 
+const create = ref(false);
 const isCreate = ref(false);
 const urls = ref({
   baseUrl: "https://",
@@ -80,11 +81,16 @@ const addUrls = async () => {
     .then((value) => {
       if (value.data) {
         isCreate.value = true;
+        create.value = true;
       }
       setTimeout(() => {
         isCreate.value = false;
-        document.getElementById();
       }, 3000);
+
+      setTimeout(() => {
+        create.value = false;
+      }, 3900);
+
     })
     .catch((err) => console.log(err));
 };
