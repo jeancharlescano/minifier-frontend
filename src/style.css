@@ -1,3 +1,37 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.appear {
+  animation-duration: 1s;
+  animation-name: slidein;
+}
+
+.desappear {
+  animation-duration: 1s;
+  animation-name: slidein;
+}
+
+@keyframes slidein {
+  from {
+    margin-bottom: -10%;
+    width: 24rem;
+  }
+
+  to {
+    bottom: 0;
+    width: 24rem;
+  }
+}
+
+@keyframes slideout {
+  from {
+    bottom: 0;
+    width: 24rem;
+  }
+
+  to {
+    margin-bottom: -10%;
+    width: 24rem;
+  }
+}

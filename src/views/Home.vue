@@ -62,7 +62,7 @@
       </div>
     </section>
   </div>
-  <Popup v-if="isCreate"></Popup>
+  <Popup v-if="isCreate" :display="isCreate"></Popup>
 </template>
 
 <script setup>
@@ -83,6 +83,7 @@ const addUrls = async () => {
       }
       setTimeout(() => {
         isCreate.value = false;
+        document.getElementById();
       }, 3000);
     })
     .catch((err) => console.log(err));
